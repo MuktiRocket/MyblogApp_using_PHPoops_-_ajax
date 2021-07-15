@@ -1,18 +1,50 @@
+const registerform = document.getElementById("registerform");
 const addform = document.getElementById("add-blog-form");
-const updateform = document.getElementById("edit-blog-form")
+const updateform = document.getElementById("edit-blog-form");
 const showAlert = document.getElementById("showAlert");
-const addModal = new bootstrap.Modal(document.getElementById("addNewblogModal"));
-const editModal = new bootstrap.Modal(document.getElementById("editblogModal"));
+// const addModal = new bootstrap.Modal(document.getElementById("addNewblogModal"));
+// const editModal = new bootstrap.Modal(document.getElementById("editblogModal"));
 const tbody = document.querySelector('tbody');
 
+console.log(registerform);
+
+// register form ajax request
 
 
-//add new user ajax request
+
+registerform.addEventListener('submit', async (e) => {
+
+    const formdata = new FormData(registerform);
+
+    formdata.append("register", 1);
+
+    if (registerform.checkValidity() === false) {
+        registerform.classList.add("was-validated");
+        return false;
+    }
+    else {
+        document.getElementById('registerform-btn').value = 'Please Wait ...';
+        const data = await fetch("action.php", {
+            method: "POST",
+            body: formdata,
+        });
+        const response = await data.text();
+        // showAlert.innerHTML = response;
+        document.getElementById('registerform-btn').value = "Register";
+        registerform.reset();
+        registerform.classList.remove("was-validated");
+        // addModal.hide();
+        // fetchAllUsers();
+    }
+
+});
+
+
+// add new user ajax request
 
 addform.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formdata = new FormData(addform);
-
     formdata.append("add", 1);
 
     if (addform.checkValidity() === false) {

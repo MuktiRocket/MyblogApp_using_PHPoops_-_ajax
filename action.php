@@ -1,8 +1,28 @@
 <?php
 require_once("db.php");
 require_once("util.php");
+require_once("user.php");
+$reg = new user;
 $db = new Database;
 $util = new util;
+
+//handle register new user ajax request
+
+if (isset($_POST['register'])) {
+
+    $username = $util->testInput($_POST['username']);
+    $email = $util->testInput($_POST['email']);
+    $password = $util->testInput($_POST['password']);
+    if ($reg->insertUser($username, $email, $password)) {
+        echo $util->showMessage('success', 'User updated successfully!!');
+    } else {
+        echo $util->showMessage('danger', 'Something went wrong!');
+    }
+}
+
+
+
+
 
 //handle add new user ajax request
 if (isset($_POST['add'])) {
