@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("db.php");
 require_once("util.php");
 require_once("user.php");
@@ -9,6 +10,7 @@ $util = new util;
 //handle register new user ajax request
 
 if (isset($_POST['register'])) {
+
 
     $username = $util->testInput($_POST['username']);
     $email = $util->testInput($_POST['email']);
@@ -22,13 +24,25 @@ if (isset($_POST['register'])) {
 
 
 
+if (isset($_POST['login'])) {
+
+
+    $username = $util->testInput($_POST['username']);
+    $password = $util->testInput($_POST['password']);
+    if ($reg->loginUser($username, $password)) {
+        echo $util->showMessage('success', 'User updated successfully!!');
+    } else {
+        echo $util->showMessage('danger', 'Something went wrong!');
+    }
+}
+
 
 
 //handle add new user ajax request
 if (isset($_POST['add'])) {
     $blogsubject = $util->testInput($_POST['blogsubject']);
     $blogcontent = $util->testInput($_POST['blogcontent']);
-    if ($db->insert($blogsubject, $blogcontent)) {
+    if ($db->insert($blogsubject, $blogcontent, $_SESSION['id'])) {
         echo $util->showMessage('success', 'User updated successfully!');
     } else {
         echo $util->showMessage('danger', 'Something went wrong!');
@@ -37,13 +51,16 @@ if (isset($_POST['add'])) {
 
 
 //handle fetch all user ajax request
+
+
+
 if (isset($_GET['read'])) {
     $users = $db->read();
     $output = '';
-
-    if ($users) {
-        foreach ($users as $row) {
-            $output .= '<tr>
+    if (isset($_SESSION)) {
+        if ($users) {
+            foreach ($users as $row) {
+                $output .= '<tr>
                             <td>' . $row['id'] . '</td>
                             <td>' . $row['username'] . '</td>
                             <td>' . $row['email'] . '</td>
@@ -55,8 +72,9 @@ if (isset($_GET['read'])) {
                             <a href="#" id="' . $row['id'] . '" class="btn btn-danger btn-sm rounded-pill py-0 deleteLink">Delete</a>
                             </td>
                         </tr>';
+            }
+            echo $output;
         }
-        echo $output;
     } else {
         echo '<tr>
                 <td colspan="6">No Users Found in the Database!</td>

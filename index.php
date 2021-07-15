@@ -120,6 +120,9 @@
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewblogModal">
                         Add New Blog
                     </button>
+                    <a href="login.php"> <button type="button" class="btn btn-danger">
+                            Logout
+                        </button></a>
                 </div>
             </div>
         </div>
