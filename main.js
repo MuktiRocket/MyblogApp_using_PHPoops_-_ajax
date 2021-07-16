@@ -76,6 +76,8 @@ const editUser = async (id) => {
     document.getElementById("id").value = response.id;
     document.getElementById("blogsubject").value = response.blogsubject;
     document.getElementById("blogcontent").value = response.blogcontent;
+    document.getElementById("image").setAttribute = response.image;
+
 };
 
 

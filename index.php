@@ -1,5 +1,8 @@
 <?php
 include_once("session.php");
+include_once("db.php");
+$db = new Database;
+$username = $db->userDetails($_SESSION['id']);
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +15,11 @@ include_once("session.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .image {
+            width: 150px;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,7 +27,7 @@ include_once("session.php");
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">MyBlog App</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -51,6 +59,11 @@ include_once("session.php");
                 </div>
                 <div class="modal-body">
                     <form id="add-blog-form" class="p-2" novalidate>
+                        <div class=" form-group">
+                            <label>Upload Image</label>
+                            <br>
+                            <input type="file" name="image" id="image">
+                        </div><br>
                         <div class="row mb-3 gx-3">
                             <div class="col">
                                 <input type="text" name="blogsubject" class="form-control form-control-lg" placeholder="Enter Blog Subject" required>
@@ -90,6 +103,11 @@ include_once("session.php");
                     <form id="edit-blog-form" class="p-2" novalidate>
                         <input type="hidden" name="id" id="id" value=''>
                         <div class="row mb-3 gx-3">
+                            <div class=" form-group">
+                                <label>Upload Image</label>
+                                <br>
+                                <input type="file" name="image" id="image">
+                            </div><br><br>
                             <div class="col">
                                 <input type="text" name="blogsubject" id="blogsubject" class="form-control form-control-lg" placeholder="Enter Blog Subject" required>
                                 <div class="invalid-feedback">Blog subject is required!</div>
@@ -118,7 +136,10 @@ include_once("session.php");
         <div class="row mt-4">
             <div class="col-lg-12 d-flex justify-content-between align-items-center">
                 <div>
-                    <h4 class="text-secondary">All Blogs</h4>
+                    <h3><?php echo 'Welcome ' . $username; ?></h3>
+                    <center>
+                        <h4 class="text-secondary">All Users</h4>
+                    </center>
                 </div>
                 <div>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewblogModal">
@@ -144,6 +165,9 @@ include_once("session.php");
                             <tr>
                                 <th>
                                     ID
+                                </th>
+                                <th>
+                                    Image
                                 </th>
                                 <th>
                                     Username
