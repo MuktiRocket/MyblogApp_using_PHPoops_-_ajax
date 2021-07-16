@@ -12,15 +12,23 @@
 
     <!--Bootsrap 4 CDN-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<<<<<<< HEAD
 
     <!--Fontawesome CDN-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
+=======
+    <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+>>>>>>> 751095daf9299bbdb6e1e2ca388e9cf70bf7fa45
     <!--Custom styles-->
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
         /* Made with love by Mutiullah Samim*/
+<<<<<<< HEAD
 
+=======
+>>>>>>> 751095daf9299bbdb6e1e2ca388e9cf70bf7fa45
         @import url('https://fonts.googleapis.com/css?family=Numans');
 
         html,
@@ -76,7 +84,10 @@
         input:focus {
             outline: 0 0 0 0 !important;
             box-shadow: 0 0 0 0 !important;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 751095daf9299bbdb6e1e2ca388e9cf70bf7fa45
         }
 
         .remember {
@@ -130,7 +141,10 @@
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
                             <input type="text" class="form-control" placeholder="username" name="username" id="username" required>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 751095daf9299bbdb6e1e2ca388e9cf70bf7fa45
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
@@ -157,12 +171,18 @@
 </body>
 <script>
     const loginform = document.getElementById("loginform");
+<<<<<<< HEAD
 
+=======
+>>>>>>> 751095daf9299bbdb6e1e2ca388e9cf70bf7fa45
     loginform.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formdata = new FormData(loginform);
         formdata.append("login", 1);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 751095daf9299bbdb6e1e2ca388e9cf70bf7fa45
         if (loginform.checkValidity() === false) {
             e.stopPropagation();
             loginform.classList.add("was-validated");
@@ -177,9 +197,13 @@
             loginform.reset();
             loginform.classList.remove("was-validated");
             window.location.href = "http://localhost/Myblog/";
+<<<<<<< HEAD
 
         }
 
+=======
+        }
+>>>>>>> 751095daf9299bbdb6e1e2ca388e9cf70bf7fa45
     });
 </script>
 

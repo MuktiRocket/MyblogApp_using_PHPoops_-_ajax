@@ -49,9 +49,17 @@
                 </label>
                 <input type="password" class="form-control form-control-sm" id="password" name="password" required style="width: 200px;">
             </div>
+<<<<<<< HEAD
             <center> <button type="submit" class="btn btn-primary" value="Register" id="registerform-btn" style="width: 100px;">Register</button>
                 <a href="login.php" class="btn btn-success" value="Login Page" id="registerform-btn">Login Page</a>
             </center>
+=======
+            <br><br>
+            <center> <button type="submit" class="btn btn-primary" value="Register" id="registerform-btn" style="width: 100px;">Register</button>
+                <a href="login.php" class="btn btn-success" value="Login Page" id="registerform-btn">Login Page</a>
+            </center>
+            <br><br>
+>>>>>>> 751095daf9299bbdb6e1e2ca388e9cf70bf7fa45
         </form>
 
     </center>

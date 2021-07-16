@@ -9,14 +9,6 @@ const editModal = new bootstrap.Modal(document.getElementById("editblogModal"));
 const tbody = document.querySelector('tbody');
 
 
-
-// register form ajax request
-
-
-
-
-
-
 // add new user ajax request
 
 addform.addEventListener('submit', async (e) => {
@@ -87,6 +79,8 @@ const editUser = async (id) => {
     document.getElementById("id").value = response.id;
     document.getElementById("blogsubject").value = response.blogsubject;
     document.getElementById("blogcontent").value = response.blogcontent;
+    document.getElementById("image").setAttribute = response.image;
+
 };
 
 
