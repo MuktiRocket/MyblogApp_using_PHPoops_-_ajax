@@ -1,18 +1,16 @@
 const addform = document.getElementById("add-blog-form");
-const updateform = document.getElementById("edit-blog-form")
+const updateform = document.getElementById("edit-blog-form");
 const showAlert = document.getElementById("showAlert");
 const addModal = new bootstrap.Modal(document.getElementById("addNewblogModal"));
 const editModal = new bootstrap.Modal(document.getElementById("editblogModal"));
 const tbody = document.querySelector('tbody');
 
 
-
-//add new user ajax request
+// add new user ajax request
 
 addform.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formdata = new FormData(addform);
-
     formdata.append("add", 1);
 
     if (addform.checkValidity() === false) {
@@ -120,6 +118,7 @@ tbody.addEventListener("click", (e) => {
     if (e.target && e.target.matches("a.deleteLink")) {
         e.preventDefault();
         let id = e.target.getAttribute("id");
+        console.log(id);
         deleteUser(id);
     }
 });

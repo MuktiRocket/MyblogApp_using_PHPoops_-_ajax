@@ -1,14 +1,26 @@
 <?php
+include_once("session.php");
 require_once('pdo_connect.php');
 class Database extends Connect
 {
-    public function insert($blogsubject, $blogcontent)
+    public function insert($blogsubject, $blogcontent, $u_id)
     {
-        $sql = "INSERT INTO blogs(blogsubject, blogcontent) VALUES (:blogsubject, :blogcontent)";
+        $sql_fetch = "SELECT email,username FROM user WHERE id = :id";
+        $stmnt_fetch = $this->conn->prepare($sql_fetch);
+        $stmnt_fetch->execute([
+            'id' => $u_id
+        ]);
+        $fetch_result = $stmnt_fetch->fetch();
+
+
+        $sql = "INSERT INTO blogs(blogsubject, blogcontent,username,email) VALUES (:blogsubject, :blogcontent,:username,:email)";
         $stmnt = $this->conn->prepare($sql);
         $stmnt->execute([
             'blogsubject' => $blogsubject,
-            'blogcontent' => $blogcontent
+            'blogcontent' => $blogcontent,
+            'username' => $fetch_result['username'],
+            'email' => $fetch_result['email']
+
         ]);
         return true;
     }
