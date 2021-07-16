@@ -173,11 +173,9 @@
                 method: "POST",
                 body: formdata,
             });
-            console.log("hi");
             document.getElementById('loginform-btn').value = "Login";
             loginform.reset();
             loginform.classList.remove("was-validated");
-            console.log('hi');
             window.location.href = "http://localhost/Myblog/";
 
         }

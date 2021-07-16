@@ -1,5 +1,5 @@
 <?php
-session_start();
+include_once("session.php");
 require_once("db.php");
 require_once("util.php");
 require_once("user.php");
@@ -61,24 +61,24 @@ if (isset($_GET['read'])) {
         if ($users) {
             foreach ($users as $row) {
                 $output .= '<tr>
-                            <td>' . $row['id'] . '</td>
-                            <td>' . $row['username'] . '</td>
-                            <td>' . $row['email'] . '</td>
-                            <td>' . $row['blogsubject'] . '</td>
-                            <td>' . $row['blogcontent'] . '</td>
-                            <td>' . $row['created_at'] . '</td>
-                            <td>
-                            <a href="#" id="' . $row['id'] . '" class="btn btn-success btn-sm rounded-pill py-0 editLink" data-toggle="modal" data-target="#editblogModal">Edit</a>
-                            <a href="#" id="' . $row['id'] . '" class="btn btn-danger btn-sm rounded-pill py-0 deleteLink">Delete</a>
-                            </td>
-                        </tr>';
+                                <td>' . $row['id'] . '</td>
+                                <td>' . $row['username'] . '</td>
+                                <td>' . $row['email'] . '</td>
+                                <td>' . $row['blogsubject'] . '</td>
+                                <td>' . $row['blogcontent'] . '</td>
+                                <td>' . $row['created_at'] . '</td>
+                                <td>
+                                <a href="#" id="' . $row['id'] . '" class="btn btn-success btn-sm rounded-pill py-0 editLink" data-toggle="modal" data-target="#editblogModal">Edit</a>
+                                <a href="#" id="' . $row['id'] . '" class="btn btn-danger btn-sm rounded-pill py-0 deleteLink">Delete</a>
+                                </td>
+                             </tr>';
             }
             echo $output;
-        }
-    } else {
-        echo '<tr>
+        } else {
+            echo '<tr>
                 <td colspan="6">No Users Found in the Database!</td>
               </tr>';
+        }
     }
 }
 

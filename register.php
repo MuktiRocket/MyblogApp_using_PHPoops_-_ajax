@@ -23,25 +23,38 @@
 </head>
 
 <body class="body">
-    <h1>Registration Form</h1>
+    <center>
+        <h1>Registration Form</h1>
+    </center>
     <hr>
     <br>
-    <form id="registerform" class="register" name="register" action="login.php">
-        <div class="mb-3">
-            <label class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" name="username" required>
-        </div>
+    <center>
+        <form id="registerform" name="register" action="login.php" class='card p-3 bg-light' style="width: 300px;">
+            <div class="mb-3">
+                <label class="form-label">
+                    <h5>Username</h5>
+                </label>
+                <input type="text" class="form-control form-control-sm" id="username" name="username" required style="width: 200px;">
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" name="email" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password" required>
-        </div>
-        <button type="submit" class="btn btn-primary" value="Register" id="registerform-btn">Register</button>
-    </form>
+            <div class="mb-3">
+                <label class="form-label">
+                    <h5>Email address</h5>
+                </label>
+                <input type="email" class="form-control form-control-sm" id="email" name="email" required style="width: 200px;">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">
+                    <h5>Password</h5>
+                </label>
+                <input type="password" class="form-control form-control-sm" id="password" name="password" required style="width: 200px;">
+            </div>
+            <center> <button type="submit" class="btn btn-primary" value="Register" id="registerform-btn" style="width: 100px;">Register</button>
+                <a href="login.php" class="btn btn-success" value="Login Page" id="registerform-btn">Login Page</a>
+            </center>
+        </form>
+
+    </center>
 </body>
 <script>
     const registerform = document.getElementById("registerform");

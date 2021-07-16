@@ -1,4 +1,5 @@
 <?php
+include_once("session.php");
 require_once('pdo_connect.php');
 class Database extends Connect
 {
